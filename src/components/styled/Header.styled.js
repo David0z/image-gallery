@@ -17,6 +17,8 @@ export const StyledHeader = styled.div`
         padding: 0;
         margin: 0;
         line-height: 5rem;
+        pointer-events: none;
+        user-select: none;
     }
 
     svg {
