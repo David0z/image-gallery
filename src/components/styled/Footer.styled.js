@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
-    --border: .3rem solid black;
+    --border: .15rem solid black;
     border-top: var(--border);
     background-color: ${({theme}) => theme.colors.third};
     box-sizing: border-box;
@@ -15,6 +15,11 @@ export const StyledFooter = styled.footer`
         margin: 0;
         font-size: 1.2rem;
         font-weight: 600;
+
+        &::selection {
+        background-color: #000;
+        color: #fff;
+        }
     }
 `
 

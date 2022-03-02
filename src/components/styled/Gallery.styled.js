@@ -26,6 +26,11 @@ export const SearchbarInput = styled.input`
     background-color: ${({theme}) => theme.colors.third};
     color: ${({theme}) => theme.colors.fourth};
     font-size: calc(var(--size) / 2 - 1.2rem);
+
+    &::selection {
+        background-color: #000;
+        color: #fff;
+    }
 `
 
 export const SearchbarLabel = styled.label`

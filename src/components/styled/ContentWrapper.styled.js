@@ -4,7 +4,6 @@ export const StyledContentWrapper = styled.div`
     box-sizing: border-box;
     width: 100%;
     padding-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    align-content: center;
 `

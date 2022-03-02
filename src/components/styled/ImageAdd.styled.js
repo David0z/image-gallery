@@ -63,6 +63,11 @@ export const InputsWrapper = styled.div`
         color: ${({theme}) => theme.colors.fourth};
         font-size: calc(var(--size) / 2 - 1.2rem);
 
+        &::selection {
+        background-color: #000;
+        color: #fff;
+        }
+
         &:focus {
             color: ${({theme}) => theme.colors.fifth};
         }
