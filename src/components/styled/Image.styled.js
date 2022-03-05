@@ -4,6 +4,9 @@ export const StyledDivWrapper = styled.div`
     position: relative;
     display: grid;
     place-items: center;
+    opacity: ${({inView}) => inView === true ? '1' : '0'};
+    transform: ${({inView}) => inView === true ? 'scale(1)' : 'scale(0.5)'};
+    transition: all .6s;
 
     &:hover {
         & > div {

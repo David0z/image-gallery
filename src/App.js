@@ -114,6 +114,21 @@ function App() {
       source: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Cat_November_2010-1a.jpg/1200px-Cat_November_2010-1a.jpg',
       title: 'New Cat',
       id: uuidv4()
+    },
+    {
+      source: 'https://images.theconversation.com/files/443350/original/file-20220131-15-1ndq1m6.jpg?ixlib=rb-1.1.0&rect=0%2C0%2C3354%2C2464&q=45&auto=format&w=926&fit=clip',
+      title: 'New Cat 2',
+      id: uuidv4()
+    },
+    {
+      source: 'https://www.rd.com/wp-content/uploads/2021/01/GettyImages-1175550351.jpg',
+      title: 'New Cat 3',
+      id: uuidv4()
+    },
+    {
+      source: 'https://media.wired.co.uk/photos/60c8730fa81eb7f50b44037e/3:2/w_3329,h_2219,c_limit/1521-WIRED-Cat.jpeg',
+      title: 'New Cat 4',
+      id: uuidv4()
     }
   ]);
 

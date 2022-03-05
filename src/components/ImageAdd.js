@@ -9,20 +9,55 @@ function ImageAdd() {
   const [url, setUrl] = useState('');
   const [title, setTitle] = useState('');
   const {setImages} = useContext(StateContext);
+  const [isUrlError, setIsUrlError] = useState(false);
+  const [isTitleError, setIsTitleError] = useState(false);
 
   function handleImageAdd() {
-    if (title === '') {
-      return; 
-      // ALERT!!!!!!!!!
+    // Alert and return if empty arrays
+    if (url === '' || title === '') {
+      if (title === '') {
+        setIsTitleError(true);
+      }
+      if (url === '') {
+        setIsUrlError(true);
+      }
+      return;
     }
 
-    setImages(prevImages => [...prevImages, {
-      source: url,
-      title: title,
-      id: uuidv4()
-    }])
-    setUrl('');
-    setTitle('');
+    // Create unappended img to check for errors
+    let temporaryImg = document.createElement('img');
+    temporaryImg.src = url;
+
+    temporaryImg.addEventListener('error', () => {
+      setIsUrlError(true);
+    });
+
+    temporaryImg.addEventListener('load', () => {
+      setImages(prevImages => [...prevImages, {
+        source: url,
+        title: title,
+        id: uuidv4()
+      }]);
+      setUrl('');
+      setTitle('');
+    });
+  }
+
+  function handleInput(e, type) {
+    switch(type) {
+      case 'url':
+        setUrl(e.target.value);
+        if (isUrlError) {
+          setIsUrlError(false);
+        }
+        break;
+      case 'title':
+        setTitle(e.target.value);
+        if (isTitleError) {
+          setIsTitleError(false);
+        }
+        break;
+    }
   }
 
   return (
@@ -30,8 +65,8 @@ function ImageAdd() {
         <AddNewImage>Add New Image</AddNewImage>
         <FormWrapper>
             <InputsWrapper>
-                <UrlInput placeholder='Image URL' type='text' onChange={(e) => setUrl(e.target.value)} value={url}/>
-                <TitleInput placeholder='Title' type='text' onChange={(e) => setTitle(e.target.value)} value={title}/>
+                <UrlInput placeholder='Image URL' type='text' onChange={(e) => handleInput(e, 'url')} value={url} isUrlError={isUrlError}/>
+                <TitleInput placeholder='Title' type='text' onChange={(e) => handleInput(e, 'title')} value={title} isTitleError={isTitleError}/>
             </InputsWrapper>
             <AddButton onClick={handleImageAdd}>
                 < BsFillPlusSquareFill />
