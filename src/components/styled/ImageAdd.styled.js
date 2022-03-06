@@ -69,16 +69,16 @@ export const InputsWrapper = styled.div`
 `
 
 export const UrlInput = styled.input`
-    background-color: ${({isUrlError, theme}) => isUrlError === true ? 'pink' : theme.colors.third};
-    color: ${({isUrlError, theme}) => isUrlError === true ? 'red' : theme.colors.fourth};
+    background-color: ${({isUrlError, isInvalidUrl , theme}) => isUrlError === true || isInvalidUrl === true ? 'pink' : theme.colors.third};
+    color: ${({isUrlError, isInvalidUrl, theme}) => isUrlError === true || isInvalidUrl === true ? 'red' : theme.colors.fourth};
 
     &:focus {
-        color: ${({isUrlError, theme}) => isUrlError === true ? 'red' : theme.colors.fifth};
-        outline: 0.14rem solid ${({isUrlError}) => isUrlError === true ? 'red' : 'black'};
+        color: ${({isUrlError, isInvalidUrl, theme}) => isUrlError === true || isInvalidUrl === true ? 'red' : theme.colors.fifth};
+        outline: 0.14rem solid ${({isUrlError, isInvalidUrl}) => isUrlError === true || isInvalidUrl === true ? 'red' : 'black'};
     }
 
     &::placeholder {
-        color: ${({isUrlError, theme}) => isUrlError === true ? 'red' : theme.colors.fourth};
+        color: ${({isUrlError, isInvalidUrl, theme}) => isUrlError === true || isInvalidUrl === true ? 'red' : theme.colors.fourth};
     }
 `
 
