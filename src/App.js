@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import { ThemeProvider } from "styled-components";
 import { createGlobalStyle } from "styled-components";
@@ -16,6 +16,12 @@ const theme = {
     third: '#DADADA',
     fourth: 'rgba(0, 0, 0, 64%)',
     fifth: '#000000'
+  },
+  resolution: {
+    small: '480px',
+    medium: '768px',
+    large: '1024px',
+    xlarge: '1200px'
   }
 }
 
@@ -23,6 +29,10 @@ const GlobalStyle = createGlobalStyle`
 
   :root {
     --size: 7rem;
+
+    @media (max-width: ${({theme}) => theme.resolution.small}) {
+      font-size: 3.35vw;
+    }
   }
 
   * {
@@ -131,6 +141,16 @@ function App() {
       id: uuidv4()
     }
   ]);
+
+  useEffect(() => {
+    if (localStorage.getItem('images')) {
+      setImages(JSON.parse(localStorage.getItem('images')));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('images', JSON.stringify(images));
+  }, [images]);
 
   return (
     <StateContext.Provider value={{images: images, setImages: setImages}}>

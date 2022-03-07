@@ -95,7 +95,7 @@ function Alert({isTitleError, isUrlError, isInvalidUrl, isAdded, setIsAdded }) {
                     opacity: 0,
                     x: 20
                  }}
-                key={error.title}>
+                key={error.title} layout>
                     <AlertInstance type={error.type}>
                         <div>
                             <IndicationIcon type={error.type}>

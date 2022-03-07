@@ -4,6 +4,10 @@ export const StyledImageAdd = styled.div`
     box-sizing: border-box;
     width: 100%;
     padding: 0 10%;
+
+    @media (orientation: portrait), (max-width: ${({theme}) => theme.resolution.large}) {
+        padding: 0 5%;
+    }
 `
 
 export const AddNewImage = styled.div`
@@ -20,7 +24,7 @@ export const AddNewImage = styled.div`
         position: absolute;
         top: 0;
         left: 100%;
-        width: 100%;
+        width: 2rem;
         height: 100%;
         background-color: ${({theme}) => theme.colors.second};
     }
@@ -30,7 +34,7 @@ export const AddNewImage = styled.div`
         position: absolute;
         top: 0;
         left: 100%;
-        width: 100%;
+        width: 2rem;
         height: 100%;
         background-color: ${({theme}) => theme.colors.first};
         border-radius: 0 0 0 2rem;
@@ -44,13 +48,26 @@ export const FormWrapper = styled.div`
     width: max-content;
     display: flex;
     align-items: stretch;
+    box-sizing: border-box;
+
+    @media (orientation: portrait), (max-width: ${({theme}) => theme.resolution.medium}) {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr var(--size);
+        grid-column-gap: 1rem;
+    }
 `
 
 export const InputsWrapper = styled.div`
-    margin-right: 1rem;
+    padding-right: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (orientation: portrait), (max-width: ${({theme}) => theme.resolution.medium}) {
+        grid-column: 1 / 2;
+        margin: 0;
+    }
 
     input {
         display: block;
@@ -64,6 +81,18 @@ export const InputsWrapper = styled.div`
         &::selection {
         background-color: #000;
         color: #fff;
+        }
+
+        @media (max-width: ${({theme}) => theme.resolution.xlarge}) {
+            width: 40rem;
+        }
+
+        @media (max-width: ${({theme}) => theme.resolution.large}) {
+            width: 33rem;
+        }
+
+        @media (orientation: portrait), (max-width: ${({theme}) => theme.resolution.medium}) {
+            width: 100%;
         }
     }
 `
@@ -115,5 +144,9 @@ export const AddButton = styled.button`
     svg {
         width: 100%;
         height: 100%;
+    }
+
+    @media (orientation: portrait), (max-width: ${({theme}) => theme.resolution.medium}) {
+        grid-column: 2 / 3;
     }
 `

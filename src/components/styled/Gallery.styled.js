@@ -6,6 +6,10 @@ export const GalleryWrapper = styled.div`
     padding: 0 10%;
     margin-top: 5rem;
     background: linear-gradient(to bottom, white, ${({theme}) => theme.colors.third});
+
+    @media (orientation: portrait), (max-width: ${({theme}) => theme.resolution.large}) {
+        padding: 0 5%;
+    }
 `
 
 export const SearchBarWrapper = styled.div`
@@ -17,6 +21,11 @@ export const SearchBarWrapper = styled.div`
     width: max-content;
     overflow: hidden;
     box-shadow: .5rem .5rem 1rem rgba(0, 0, 0, .24);
+
+    @media (orientation: portrait), (max-width: ${({theme}) => theme.resolution.medium}) {
+        width: 100%;
+        justify-content: space-between;
+    }
 `
 
 export const SearchbarInput = styled.input`
@@ -31,6 +40,10 @@ export const SearchbarInput = styled.input`
         background-color: #000;
         color: #fff;
     }
+
+    @media (orientation: portrait), (max-width: ${({theme}) => theme.resolution.medium}) {
+        width: 100%;
+    }
 `
 
 export const SearchbarLabel = styled.label`
@@ -44,6 +57,5 @@ export const SearchbarLabel = styled.label`
 export const ImagesWrapper = styled.div`
     margin-top: 3rem;
     margin-bottom: 5rem;
-    border: 1px solid red;
     min-height: 10rem;
 `
