@@ -7,7 +7,7 @@ function Footer() {
     <StyledFooter>
         <p>Made by: Dawid Czesak</p>
         <ContactWrapper>
-            <p>dawid5soon5@gmail.com</p>
+            <p>dawidczesak98@gmail.com</p>
             <a href='https://david0z.github.io/' target='_blank'>
                 <BsPersonSquare />
                 <span>Personal Website</span>
